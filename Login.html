@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>itags/user/login</title>
+    <link rel="stylesheet" href="Login.css">
+  </head>
+<body>
+  <section class="header">
+    <div class="mainpage">
+      <form action="Login.php" method="post" name="user">
+        <h2>Login</h2>
+        <p>Username *</p><input type="text" name="uname" id="uname" required>
+        <p>Password *</p>
+        <div class="password-container">
+          <input type="password" name="upwrd" id="upwrd" oninput="checker()" required><span class="password-toggle" onclick="togglePassword()"><img id="eye-icon" src="closedeye.png" alt="Show Password"></span>
+        </div><span id="msg" style="color:#FFB76C;"></span>
+        <div style="display: flex; justify-content: space-between; align-items: center; color:#BDE8F5;">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button id="frmbtn" onclick="login()">Login</button>
+        <p style="text-align:center;">Don't have an account? <a href="#">Sign up</a></p>
+
+        <hr><div class="social-login" style="text-align:center;">
+          <div class="icons">
+            <a href="#"><img src="google.png" alt="Google"></a>
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+  <script type="text/javascript">
+    function login(){
+      var x = document.forms['user']['uname'].value;
+      if(x == null||x == ""){
+        alert("Fill up this Field");
+        return false;
+      }
+      var y = document.forms['user']['upwrd'].value;
+      if(isNaN(y)){
+        alert("only numbers are allowed");
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+    function checker(){
+      var y = document.forms['user']['upwrd'].value;
+      var msg = document.getElementById('msg');
+      if (isNaN(y)) {
+        msg.textContent = "*only numbers are required";
+      }else{
+        msg.textContent ="";
+      }
+    }
+    function togglePassword() {
+      const passwordInput = document.getElementById('upwrd');
+      const eyeIcon = document.getElementById('eye-icon');
+      if (passwordInput.type === 'password'){passwordInput.type = 'text';
+      eyeIcon.src = 'opendeye.png';
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.src = 'closedeye.png';
+      }
+    }
+  </script>
+</html>
