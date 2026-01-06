@@ -1,0 +1,3 @@
+<?php
+$servername= "root";
+$password= "";

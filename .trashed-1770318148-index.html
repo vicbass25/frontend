@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>itags/user/login</title>
     <link rel="stylesheet" href="Login.css">
   </head>
 <body>
   <section class="header">
-    <div class="mainpage" id="card">
+    <div class="mainpage">
       <form action="Login.php" method="post" name="user">
         <h2>Login</h2>
         <p>Username *</p><input type="text" name="uname" id="uname" required>
@@ -15,7 +14,7 @@
         <div class="password-container">
           <input type="password" name="upwrd" id="upwrd" oninput="checker()" required><span class="password-toggle" onclick="togglePassword()"><img id="eye-icon" src="closedeye.png" alt="Show Password"></span>
         </div><span id="msg" style="color:#FFB76C;"></span>
-        <div style="display: flex; justify-content: space-between; align-items: center; color:#F8FAFC;;">
+        <div style="display: flex; justify-content: space-between; align-items: center; color:#BDE8F5;">
           <label><input type="checkbox"> Remember me</label>
           <a href="#">Forgot password?</a>
         </div>
@@ -37,7 +36,7 @@
     function login(){
       var x = document.forms['user']['uname'].value;
       if(x == null||x == ""){
-        alert("username not filled");
+        alert("Fill up this Field");
         return false;
       }
       var y = document.forms['user']['upwrd'].value;
@@ -48,10 +47,6 @@
       else{
         return true;
       }
-      var j= document.getElementById('card');
-      card.classList.remove("shake");
-      void card.offsetWidth;
-      card.classList.add("shake");
     }
     function checker(){
       var y = document.forms['user']['upwrd'].value;

@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #0F172A;
+  background: #1C4D8D;
 }
 
 .header {
@@ -14,20 +14,19 @@ body {
 }
 
 .mainpage {
-  background: #1E293B;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   padding:  30px;
   border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  width: 310px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
   display: flex;
   flex-direction:column;
   align-items: center;
-  animation: cardEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 h2{
   text-align: center;
-  color: #F8FAFC;
+  color: #BDE8F5;
 }
 form{
   width: 100%;
@@ -37,34 +36,31 @@ form{
 form p {
   margin: 0px 0 5px
   font-weight: bold;
-  color: #F8FAFC;
+  color: #BDE8F5;
 }
 form a{
-  color: #38BDF8;
+  color: #4988C4;
   text-decoration: none;
 }
-.shake{
-  animation: shake 0.35s ease;
-}
+
 input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 10px;
-  color: #F8FAFC;
   margin-bottom: 10px;
-  border: 1px solid #475569;
+  border: 5px blue;
   border-radius: 8px;
   box-sizing: border-box;
   font-size: 14px;
-  background: #334155;
+  background: #4988C4;
 }
 input[type="text"]:hover{
   transform: scalex(1.1);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 input[type="password"]:hover{
   transform: scalex(1.1);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 .password-container {
   position: relative;
@@ -86,17 +82,16 @@ input[type="password"]:hover{
 #frmbtn {
   width: 100%;
   padding: 10px;
-  background-color: #F97316;
-  color: #FFFFFF;
+  background-color: #1C4D8D;
+  color: #BDE8F5;
   font-size: 14px;
-  font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.4s ease;
 }
 
 #frmbtn:hover {
-  background-color: #EA580C;
+  background-color: #4988C4;
 }
 .social-login {
   margin-top: 20px;
@@ -111,30 +106,12 @@ input[type="password"]:hover{
 }
 
 .icons img {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 .icons img:hover {
   transform: scale(1.1);
-}
-@keyframes cardEnter{
-  from{
-    opacity: 0;
-    transform: translateY(24px) scale(0.90);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-@keyframes shake{
-  0% {transform: translateX(0);}
-  20% {transform: translateX(-6px);}
-  40% {transform: translateX(6px);}
-  60% {transform: translateX(-4px);}
-  80% {transform: translateX(4px);}
-  100% {transform: translateX(0);}
 }
