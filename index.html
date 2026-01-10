@@ -8,19 +8,19 @@
 <body>
   <section class="header">
     <div class="mainpage" id="card">
-      <form action="Login.php" method="post" name="user">
+      <form action="Techhub.html" method="post" name="user">
         <h2>Login</h2>
-        <p>Username *</p><input type="text" name="uname" id="uname" required>
+        <p>Username *</p><input type="text" name="uname" id="uname" placeholder="Friday1-0"required><span id="unames" oninput="unames()" style="color:#FFB76C;"></span>
         <p>Password *</p>
         <div class="password-container">
           <input type="password" name="upwrd" id="upwrd" oninput="checker()" required><span class="password-toggle" onclick="togglePassword()"><img id="eye-icon" src="closedeye.png" alt="Show Password"></span>
         </div><span id="msg" style="color:#FFB76C;"></span>
         <div style="display: flex; justify-content: space-between; align-items: center; color:#F8FAFC;;">
           <label><input type="checkbox"> Remember me</label>
-          <a href="#">Forgot password?</a>
+          <a href="forgotpwrd.html">Forgot password?</a>
         </div>
         <button id="frmbtn" onclick="login()">Login</button>
-        <p style="text-align:center;">Don't have an account? <a href="#">Sign up</a></p>
+        <p style="text-align:center;">Don't have an account? <a href="signup.html">Sign up</a></p>
 
         <hr><div class="social-login" style="text-align:center;">
           <div class="icons">
@@ -36,13 +36,15 @@
   <script type="text/javascript">
     function login(){
       var x = document.forms['user']['uname'].value;
+      var unames = document.getElementById('unames')
       if(x == null||x == ""){
-        alert("username not filled");
-        return false;
+        unames.textContent="*username not filled";
+      }else{
+        unames.textContent= "";
       }
       var y = document.forms['user']['upwrd'].value;
       if(isNaN(y)){
-        alert("only numbers are allowed");
+        y.textContent= "only numbers are allowed";
         return false;
       }
       else{

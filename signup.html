@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>itags/user/signin</title>
+    <style>
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0F172A;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainpage {
+  background: #1E293B;
+  backdrop-filter: blur(5px);
+  padding:  30px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  width: 310px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  animation: cardEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+h2{
+  text-align: center;
+  color: #F8FAFC;
+}
+form{
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+form p {
+  margin: 0px 0 5px
+  font-weight: bold;
+  color: #F8FAFC;
+}
+form a{
+  color: #38BDF8;
+  text-decoration: none;
+}
+.shake{
+  animation: shake 0.35s ease;
+}
+input[type="text"],
+input[type="password"]{
+  width: 100%;
+  padding: 10px;
+  color: #F8FAFC;
+  margin-bottom: 5px;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background: #334155;
+}
+#telnum{
+  width: 100%;
+  padding: 10px;
+  color: #F8FAFC;
+  margin-bottom: 5px;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background: #334155;
+}
+input[type="text"]:hover{
+  transform: scalex(1.1);
+  transition: all 0.3s ease-in-out;
+}
+input[type="password"]:hover{
+  transform: scalex(1.1);
+  transition: all 0.3s ease-in-out;
+}
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle img {
+  width: 17px;
+  height: 20px;
+}
+#frmbtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #F97316;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+#frmbtn:hover {
+  background-color: #EA580C;
+}
+.social-login {
+  margin-top: 20px;
+}
+
+.social-login p {
+  color: #BDE8F5;
+  margin-bottom: 10px;
+}
+.icons a {
+  margin: 0 10px;
+}
+
+.icons img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+.icons img:hover {
+  transform: scale(1.1);
+}
+@keyframes cardEnter{
+  from{
+    opacity: 0;
+    transform: translateY(24px) scale(0.90);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes shake{
+  0% {transform: translateX(0);}
+  20% {transform: translateX(-6px);}
+  40% {transform: translateX(6px);}
+  60% {transform: translateX(-4px);}
+  80% {transform: translateX(4px);}
+  100% {transform: translateX(0);}
+}
+    </style>
+  </head>
+<body>
+  <section class="header">
+    <div class="mainpage" id="card">
+      <form action="index.html" method="post" name="user">
+        <h2>Sign Up</h2>
+        <p>Username *</p><input type="text" name="uname" id="uname" placeholder="Friday1-0"required>
+        <p>Firstname *</p><input type="text" name="uname" id="uname" placeholder="Victor"required>
+        <p>Lastname *</p><input type="text" name="uname" id="uname" placeholder="Bassey" required>
+        <p>Tel *</p><input type="tel" pattern="(\+234|0)[7-9][0-1]\d{8}" name="telnum" id="telnum" placeholder="09123456789" required>
+        <p>Password *</p>
+        <div class="password-container">
+          <input type="password" id="upwrd" oninput="checkPasswords()" required><span class="password-toggle" onclick="togglePassword('upwrd', 'eye1')"><img id="eye1" src="closedeye.png" alt="Show Password"></span>
+        </div><span id="msg" style="color:#FFB76C;"></span>
+        <p>Confirm Password *</p>
+        <div class="password-container">
+          <input type="password" id="upwrd1" oninput="checkPasswords()" required><span class="password-toggle" onclick="togglePassword('upwrd1', 'eye2')"><img id="eye2" src="closedeye.png" alt="Show Password"></span>
+        </div>
+        <span id="msg" style="color:#FFB76C;"></span>
+        <button id="frmbtn" onclick="login()">Sign Up</button>
+        <p style="text-align:center;">Already have an account? <a href="index.html">Login</a></p>
+        <hr>
+        <div class="social-login" style="text-align:center;">
+          <div class="icons">
+            <a href="#"><img src="google.png" alt="Google"></a>
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+  <script type="text/javascript">
+    function login(){
+      var x = document.forms['user']['uname'].value;
+      if(x == null||x == ""){
+        alert("username not filled");
+        return false;
+      }
+      var y = document.forms['user']['upwrd'].value;
+      if(isNaN(y)){
+        alert("only numbers are allowed");
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+    function togglePassword(inputId, eyeId) {
+      const passwordInput = document.getElementById(inputId);
+      const eyeIcon = document.getElementById(eyeId);
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.src = 'opendeye.png';
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.src = 'closedeye.png';
+      }
+    }
+    function checkPasswords() {
+      const pass1 = document.getElementById('upwrd').value;
+      const pass2 = document.getElementById('upwrd1').value;
+      const msg = document.getElementById('msg');
+      msg.textContent = '';
+      if (pass2 === '') {
+        return;
+      }
+      else if (isNaN(pass1)||isNaN(pass2)) {
+        msg.textContent = "*only numbers are required";
+      }
+      else if (pass1 !== pass2) {
+        msg.textContent = 'Passwords do not match';
+      }
+      else{
+        return true;
+      }
+    }
+  </script>
+</html>

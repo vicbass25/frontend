@@ -58,6 +58,22 @@ input[type="password"] {
   font-size: 14px;
   background: #334155;
 }
+input[type="email"],
+input[type="num"]{
+  width: 100%;
+  padding: 10px;
+  color: #F8FAFC;
+  margin-bottom: 10px;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background: #334155;
+}
+input[type="email"]:hover{
+  transform: scalex(1.1);
+  transition: all 0.3s ease-in-out;
+}
 input[type="text"]:hover{
   transform: scalex(1.1);
   transition: all 0.3s ease-in-out;
